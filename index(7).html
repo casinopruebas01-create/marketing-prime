@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#0b0b0f" />
+  <title>Marketing Prime — Marketing & Publicidad</title>
+  <meta name="description" content="Agencia de marketing, publicidad, branding, redes, anuncios y desarrollo web." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0a0a0d;
+      --panel:#111116;
+      --panel2:#15151c;
+      --text:#f4f4f6;
+      --muted:#9b9ba8;
+      --line:rgba(255,255,255,.10);
+      --accent:#7c5cff;
+      --accent2:#ff5dc8;
+      --lime:#d7ff67;
+      --shadow:0 30px 80px rgba(0,0,0,.38);
+      --radius:26px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}
+    button,input,textarea{font:inherit}
+    img{display:block;width:100%}
+    .container{width:min(1200px,calc(100% - 40px));margin:auto}
+
+    /* nav */
+    .nav-wrap{position:fixed;top:16px;left:0;right:0;z-index:100}
+    .nav{height:68px;border:1px solid var(--line);background:rgba(12,12,16,.72);backdrop-filter:blur(18px);border-radius:22px;display:flex;align-items:center;padding:0 18px;box-shadow:0 14px 40px rgba(0,0,0,.25)}
+    .brand{display:flex;align-items:center;gap:11px;font-family:'Manrope',sans-serif;font-weight:800;letter-spacing:.03em}
+    .brand-mark{width:34px;height:34px;border-radius:11px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:grid;place-items:center;font-size:13px;box-shadow:0 0 30px rgba(124,92,255,.35)}
+    .nav-links{margin-left:auto;display:flex;align-items:center;gap:8px}
+    .nav-links a{padding:10px 12px;border-radius:12px;color:#c3c3cb;font-size:14px;font-weight:600}
+    .nav-links a:hover{background:rgba(255,255,255,.06);color:#fff}
+    .nav-cta{margin-left:8px;padding:11px 16px;border-radius:14px;background:#fff;color:#0b0b0f!important;font-weight:800!important}
+    .menu-btn{display:none;margin-left:auto;width:42px;height:42px;border-radius:13px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:white;font-size:19px}
+
+    /* hero */
+    .hero{min-height:100vh;padding:150px 0 70px;position:relative;display:flex;align-items:center}
+    .hero:before{content:"";position:absolute;width:560px;height:560px;left:-180px;top:80px;background:radial-gradient(circle,rgba(124,92,255,.24),transparent 68%);filter:blur(4px);pointer-events:none}
+    .hero:after{content:"";position:absolute;width:580px;height:580px;right:-200px;top:120px;background:radial-gradient(circle,rgba(255,93,200,.18),transparent 70%);pointer-events:none}
+    .hero-grid{display:grid;grid-template-columns:1.06fr .94fr;gap:42px;align-items:center;position:relative;z-index:1}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;padding:8px 11px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.03);color:#cfcfd8;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+    .eyebrow i{width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 16px var(--lime)}
+    h1,h2,h3{font-family:'Manrope',sans-serif;margin:0;letter-spacing:-.04em}
+    h1{font-size:clamp(56px,7.1vw,108px);line-height:.90;margin-top:20px;font-weight:800}
+    .gradient-text{background:linear-gradient(90deg,#fff 10%,#a38cff 56%,#ff7dd2 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero-copy p{font-size:18px;line-height:1.65;color:var(--muted);max-width:650px;margin:24px 0 0}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+    .btn{height:52px;padding:0 20px;border-radius:15px;display:inline-flex;align-items:center;justify-content:center;font-weight:800;border:1px solid transparent;transition:.2s ease}
+    .btn-primary{background:#fff;color:#08080b}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(255,255,255,.12)}
+    .btn-dark{border-color:var(--line);background:rgba(255,255,255,.035);color:white}
+    .btn-dark:hover{background:rgba(255,255,255,.07)}
+    .trust{display:flex;gap:20px;align-items:center;margin-top:32px;color:#858591;font-size:13px}
+    .avatars{display:flex}.avatars span{width:31px;height:31px;border-radius:50%;border:2px solid #0a0a0d;margin-left:-8px;background:linear-gradient(135deg,#5f5f68,#24242c);display:grid;place-items:center;font-size:9px}.avatars span:first-child{margin-left:0}
+
+    .hero-visual{position:relative;min-height:600px}
+    .visual-main{position:absolute;inset:25px 0 0 28px;border-radius:34px;overflow:hidden;border:1px solid rgba(255,255,255,.12);background:#131318;box-shadow:var(--shadow)}
+    .visual-main img{height:100%;object-fit:cover;filter:saturate(.82) contrast(1.03)}
+    .visual-main:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(4,4,7,.80) 100%)}
+    .visual-caption{position:absolute;left:26px;right:26px;bottom:24px;z-index:2}
+    .visual-caption small{color:#c7c7d1;text-transform:uppercase;letter-spacing:.15em;font-weight:700;font-size:10px}
+    .visual-caption h3{font-size:30px;margin-top:7px}
+    .metric-card{position:absolute;left:-10px;bottom:56px;z-index:4;width:190px;padding:18px;border-radius:20px;border:1px solid var(--line);background:rgba(15,15,20,.90);backdrop-filter:blur(15px);box-shadow:var(--shadow)}
+    .metric-card small{color:#8e8e99;font-size:11px;text-transform:uppercase;letter-spacing:.12em}
+    .metric-card strong{display:block;font-family:'Manrope';font-size:37px;margin:8px 0 3px}
+    .metric-card span{color:#99d18c;font-size:12px;font-weight:700}
+    .floating-tag{position:absolute;right:-14px;top:70px;z-index:3;padding:12px 14px;border-radius:15px;background:var(--lime);color:#131313;font-size:12px;font-weight:800;transform:rotate(4deg)}
+
+    /* ticker */
+    .ticker{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;background:#0d0d11}
+    .ticker-track{display:flex;gap:46px;white-space:nowrap;padding:17px 0;animation:scroll 25s linear infinite;color:#a9a9b2;font-size:12px;text-transform:uppercase;letter-spacing:.17em;font-weight:800}
+    .ticker-track span:before{content:"✦";margin-right:46px;color:var(--accent2)}
+    @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+    section.block{padding:100px 0}
+    .section-head{display:grid;grid-template-columns:.8fr 1.2fr;gap:50px;align-items:end;margin-bottom:42px}
+    .section-kicker{font-size:12px;text-transform:uppercase;letter-spacing:.16em;color:#8f8f9b;font-weight:800}
+    .section-head h2{font-size:clamp(40px,5vw,68px);line-height:.98;margin-top:10px}
+    .section-head p{margin:0;color:var(--muted);font-size:17px;line-height:1.7;max-width:600px;justify-self:end}
+
+    /* services */
+    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .service{min-height:275px;border:1px solid var(--line);border-radius:24px;padding:24px;background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.018));position:relative;overflow:hidden;transition:.25s ease}
+    .service:hover{transform:translateY(-5px);border-color:rgba(255,255,255,.22);background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.025))}
+    .service-num{font-size:11px;color:#74747f;text-transform:uppercase;letter-spacing:.15em;font-weight:800}
+    .service-icon{width:46px;height:46px;border-radius:15px;background:rgba(255,255,255,.06);border:1px solid var(--line);display:grid;place-items:center;font-size:19px;margin-top:36px}
+    .service h3{font-size:23px;margin-top:17px}
+    .service p{font-size:14px;color:var(--muted);line-height:1.62;margin:10px 0 0}
+    .service:after{content:"";position:absolute;width:120px;height:120px;border-radius:50%;right:-45px;bottom:-45px;background:radial-gradient(circle,rgba(124,92,255,.24),transparent 68%)}
+
+    /* work */
+    .work-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
+    .work-card{border-radius:28px;overflow:hidden;position:relative;min-height:480px;border:1px solid var(--line);background:#121218}
+    .work-card.tall{min-height:620px}
+    .work-card img{height:100%;object-fit:cover;position:absolute;inset:0;transition:.35s ease}
+    .work-card:hover img{transform:scale(1.025)}
+    .work-card:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,5,8,.05),rgba(5,5,8,.82) 88%)}
+    .work-info{position:absolute;z-index:2;left:24px;right:24px;bottom:22px;display:flex;align-items:end;justify-content:space-between;gap:14px}
+    .work-info small{display:block;color:#c9c9d2;font-size:11px;text-transform:uppercase;letter-spacing:.13em;font-weight:800}
+    .work-info h3{font-size:31px;margin-top:7px}
+    .arrow{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:#fff;color:#111;font-size:18px;flex:0 0 auto}
+    .work-stack{display:grid;gap:18px}
+    .work-stack .work-card{min-height:301px}
+
+    /* process */
+    .process{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .step{padding:24px 20px;border-top:1px solid rgba(255,255,255,.22);position:relative}
+    .step:before{content:"";position:absolute;top:-3px;left:0;width:6px;height:6px;background:#fff;border-radius:50%}
+    .step small{display:block;color:#6f6f79;font-weight:800;font-size:11px;letter-spacing:.15em;text-transform:uppercase;margin-bottom:32px}
+    .step h3{font-size:23px}
+    .step p{color:var(--muted);font-size:14px;line-height:1.65;margin:10px 0 0}
+
+    /* stats */
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:64px}
+    .stat{border:1px solid var(--line);border-radius:21px;padding:22px;background:rgba(255,255,255,.025)}
+    .stat b{display:block;font-family:'Manrope';font-size:40px;letter-spacing:-.05em}
+    .stat span{display:block;color:#858590;font-size:12px;margin-top:5px}
+
+    /* CTA */
+    .cta-wrap{padding:30px 0 100px}
+    .cta{position:relative;overflow:hidden;border-radius:34px;border:1px solid var(--line);padding:70px;background:linear-gradient(135deg,#161620 0%,#18121d 60%,#22131e 100%);box-shadow:var(--shadow)}
+    .cta:before{content:"";position:absolute;width:480px;height:480px;right:-140px;top:-170px;background:radial-gradient(circle,rgba(255,93,200,.28),transparent 68%)}
+    .cta:after{content:"";position:absolute;width:420px;height:420px;left:-170px;bottom:-230px;background:radial-gradient(circle,rgba(124,92,255,.22),transparent 68%)}
+    .cta-inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr auto;gap:35px;align-items:end}
+    .cta h2{font-size:clamp(44px,5.5vw,78px);line-height:.94;max-width:780px}
+    .cta p{color:#aaaab4;font-size:17px;margin:18px 0 0;max-width:650px}
+
+    footer{border-top:1px solid var(--line);padding:34px 0 46px;color:#7e7e89}
+    .footer-row{display:flex;justify-content:space-between;gap:20px;align-items:center;font-size:12px}
+    .footer-links{display:flex;gap:18px}
+
+    .whatsapp-float{position:fixed;right:20px;bottom:20px;z-index:90;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:#25D366;color:#06150a;font-size:24px;font-weight:900;box-shadow:0 15px 35px rgba(37,211,102,.28)}
+
+    @media(max-width:980px){
+      .nav-links,.nav-cta,.nav-side{display:none}.menu-btn{display:block}
+      .hero-grid,.section-head,.work-grid,.cta-inner{grid-template-columns:1fr}
+      .hero{padding-top:130px}.hero-visual{min-height:520px}.visual-main{left:0}.metric-card{left:12px}
+      .services{grid-template-columns:1fr 1fr}.section-head p{justify-self:start}
+      .process,.stats{grid-template-columns:1fr 1fr}.cta{padding:50px 30px}
+      .work-card.tall{min-height:500px}
+    }
+    @media(max-width:640px){
+      .container{width:min(100% - 24px,1200px)}
+      .nav-wrap{top:8px}.nav{height:62px;border-radius:18px}.brand-mark{width:30px;height:30px}.brand{font-size:14px}
+      .hero{min-height:auto;padding:110px 0 50px}.hero-copy p{font-size:16px}.hero-visual{min-height:420px}.visual-main{inset:12px 0 0 0;border-radius:24px}.floating-tag{right:8px;top:35px}.metric-card{bottom:20px;width:170px}
+      section.block{padding:72px 0}.services{grid-template-columns:1fr}.service{min-height:235px}
+      .section-head{gap:18px;margin-bottom:30px}.section-head p{font-size:15px}
+      .work-card,.work-card.tall,.work-stack .work-card{min-height:380px}.work-stack{grid-template-columns:1fr}
+      .process,.stats{grid-template-columns:1fr}.step{padding-left:0;padding-right:0}.stats{margin-top:35px}
+      .cta{padding:38px 22px}.cta-wrap{padding-bottom:70px}.cta .btn{width:100%;margin-top:5px}
+      .footer-row{align-items:flex-start;flex-direction:column}.footer-links{flex-wrap:wrap}
+    }
+  </style>
+</head>
+<body>
+  <div class="nav-wrap">
+    <div class="container nav">
+      <a class="brand" href="#inicio"><span class="brand-mark">MP</span><span>MARKETING PRIME</span></a>
+      <div class="nav-links">
+        <a href="#servicios">Servicios</a><a href="#trabajos">Trabajos</a><a href="#proceso">Proceso</a><a href="#contacto">Contacto</a>
+        <a class="nav-cta" href="https://wa.me/5491154995896?text=Hola%2C%20quiero%20consultar%20por%20marketing%20y%20publicidad" target="_blank">Hablemos</a>
+      </div>
+      <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    </div>
+  </div>
+
+  <main id="inicio">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow"><i></i> Marketing · Publicidad · Diseño</span>
+          <h1>Hacemos que tu marca <span class="gradient-text">se vea y venda.</span></h1>
+          <p>Estrategia, contenido, anuncios, identidad y desarrollo web en un mismo equipo. Pensamos campañas que se entienden, se recuerdan y generan resultados.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#trabajos">Ver proyectos</a>
+            <a class="btn btn-dark" href="https://wa.me/5491154995896?text=Hola%2C%20quiero%20una%20propuesta%20de%20marketing" target="_blank">Pedir propuesta →</a>
+          </div>
+          <div class="trust"><div class="avatars"><span>IG</span><span>AD</span><span>WEB</span><span>BR</span></div><span>Estrategia + creatividad + ejecución</span></div>
+        </div>
+        <div class="hero-visual">
+          <div class="visual-main">
+            <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1400&q=85" alt="Equipo creativo trabajando">
+            <div class="visual-caption"><small>Proyecto destacado</small><h3>Ideas que se transforman en crecimiento.</h3></div>
+          </div>
+          <div class="metric-card"><small>Resultado campaña</small><strong>+214%</strong><span>↑ alcance orgánico</span></div>
+          <div class="floating-tag">CREATIVE / PERFORMANCE</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="ticker"><div class="ticker-track"><span>Meta Ads</span><span>Google Ads</span><span>Branding</span><span>Social Media</span><span>Diseño Web</span><span>Contenido</span><span>Automatización</span><span>Meta Ads</span><span>Google Ads</span><span>Branding</span><span>Social Media</span><span>Diseño Web</span><span>Contenido</span><span>Automatización</span></div></div>
+
+    <section class="block" id="servicios">
+      <div class="container">
+        <div class="section-head"><div><span class="section-kicker">Qué hacemos</span><h2>Todo lo que una marca necesita para crecer.</h2></div><p>No trabajamos piezas aisladas. Construimos un sistema: estrategia, identidad, contenido, tráfico y conversión funcionando juntos.</p></div>
+        <div class="services">
+          <article class="service"><span class="service-num">01 / Estrategia</span><div class="service-icon">◎</div><h3>Marketing estratégico</h3><p>Definición de objetivos, posicionamiento, audiencias, propuesta de valor y plan de acción.</p></article>
+          <article class="service"><span class="service-num">02 / Ads</span><div class="service-icon">↗</div><h3>Meta & Google Ads</h3><p>Campañas pensadas para generar consultas, ventas y crecimiento medible.</p></article>
+          <article class="service"><span class="service-num">03 / Social</span><div class="service-icon">✦</div><h3>Redes & contenido</h3><p>Planificación, diseño, reels, copies, calendario y contenido con identidad.</p></article>
+          <article class="service"><span class="service-num">04 / Brand</span><div class="service-icon">◫</div><h3>Branding & diseño</h3><p>Identidad visual, piezas publicitarias, campañas gráficas y sistemas de marca.</p></article>
+          <article class="service"><span class="service-num">05 / Web</span><div class="service-icon">⌘</div><h3>Web & landing pages</h3><p>Sitios rápidos, modernos y pensados para convertir tráfico en oportunidades.</p></article>
+          <article class="service"><span class="service-num">06 / Automation</span><div class="service-icon">⚡</div><h3>Automatización</h3><p>WhatsApp, formularios, CRM, respuestas automáticas y procesos comerciales.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="trabajos">
+      <div class="container">
+        <div class="section-head"><div><span class="section-kicker">Selección de trabajos</span><h2>Marcas con una presencia que se siente.</h2></div><p>Concepto, diseño y performance trabajando sobre la misma idea: hacer que una marca sea más clara, más deseable y más efectiva.</p></div>
+        <div class="work-grid">
+          <article class="work-card tall"><img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=1300&q=85" alt="Branding y contenido"><div class="work-info"><div><small>Branding · Social Media</small><h3>Aura Botanics</h3></div><span class="arrow">↗</span></div></article>
+          <div class="work-stack">
+            <article class="work-card"><img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1200&q=85" alt="Campaña digital"><div class="work-info"><div><small>Ads · Performance</small><h3>North Studio</h3></div><span class="arrow">↗</span></div></article>
+            <article class="work-card"><img src="https://images.unsplash.com/photo-1542744094-3a31f272c490?auto=format&fit=crop&w=1200&q=85" alt="Estrategia de marketing"><div class="work-info"><div><small>Web · Automatización</small><h3>Pulse Company</h3></div><span class="arrow">↗</span></div></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="proceso">
+      <div class="container">
+        <div class="section-head"><div><span class="section-kicker">Cómo trabajamos</span><h2>Simple, claro y con foco en resultados.</h2></div><p>Menos vueltas. Definimos qué hay que lograr, diseñamos la estrategia, ejecutamos y medimos para mejorar.</p></div>
+        <div class="process">
+          <div class="step"><small>01 / Descubrimiento</small><h3>Entendemos</h3><p>Marca, producto, competencia, audiencia, objetivos y oportunidades.</p></div>
+          <div class="step"><small>02 / Estrategia</small><h3>Definimos</h3><p>Concepto, canales, mensajes, campañas, contenido y objetivos medibles.</p></div>
+          <div class="step"><small>03 / Ejecución</small><h3>Producimos</h3><p>Diseño, anuncios, piezas, web, contenido y automatizaciones.</p></div>
+          <div class="step"><small>04 / Optimización</small><h3>Escalamos</h3><p>Medimos, ajustamos y mejoramos lo que funciona para crecer.</p></div>
+        </div>
+        <div class="stats"><div class="stat"><b>+120</b><span>campañas producidas</span></div><div class="stat"><b>4.8x</b><span>ROAS destacado</span></div><div class="stat"><b>+38%</b><span>mejora promedio en conversión</span></div><div class="stat"><b>360°</b><span>estrategia + creatividad + medios</span></div></div>
+      </div>
+    </section>
+
+    <section class="cta-wrap" id="contacto">
+      <div class="container cta"><div class="cta-inner"><div><span class="section-kicker">¿Tenés un proyecto?</span><h2>Hagamos algo que la gente recuerde.</h2><p>Contanos qué querés lograr y armamos una propuesta enfocada en tu marca, tus objetivos y tu presupuesto.</p></div><a class="btn btn-primary" href="https://wa.me/5491154995896?text=Hola%2C%20quiero%20hablar%20sobre%20marketing%20y%20publicidad" target="_blank">Hablar por WhatsApp</a></div></div>
+    </section>
+  </main>
+
+  <footer><div class="container footer-row"><div>MARKETING PRIME · Marketing & Publicidad</div><div class="footer-links"><a href="#servicios">Servicios</a><a href="#trabajos">Trabajos</a><a href="#contacto">Contacto</a><a href="#inicio">↑ Volver arriba</a></div></div></footer>
+  <a class="whatsapp-float" href="https://wa.me/5491154995896?text=Hola%2C%20quiero%20consultar%20por%20marketing" target="_blank" aria-label="WhatsApp">✆</a>
+
+  <script>
+    function toggleMenu(){
+      const nav=document.querySelector('.nav-links');
+      if(getComputedStyle(nav).display==='none'){
+        nav.style.display='flex';nav.style.position='fixed';nav.style.left='12px';nav.style.right='12px';nav.style.top='82px';nav.style.flexDirection='column';nav.style.alignItems='stretch';nav.style.background='#111116';nav.style.border='1px solid rgba(255,255,255,.1)';nav.style.padding='14px';nav.style.borderRadius='18px';nav.style.boxShadow='0 25px 55px rgba(0,0,0,.45)';
+      }else{nav.removeAttribute('style')}
+    }
+    document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>{if(innerWidth<980)document.querySelector('.nav-links').removeAttribute('style')}));
+  </script>
+</body>
+</html>
